@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pro Portfolio - Full Stack & AI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;transition:.3s;background:#f5f7fb}
+
+.dark{background:#0f172a;color:#e2e8f0}
+
+header{
+  padding:40px 20px;
+  text-align:center;
+  background:linear-gradient(135deg,#6366f1,#06b6d4,#22c55e);
+  color:white;
+}
+
+header h1{font-size:2.5rem;font-weight:800}
+header p{margin-top:10px}
+
+nav{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  background:#111827;
+}
+nav a{
+  color:white;
+  padding:15px;
+  text-decoration:none;
+}
+nav a:hover{background:#6366f1}
+
+.container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:25px;
+  padding:25px;
+}
+
+article{
+  padding:20px;
+  border-radius:20px;
+  background:white;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  transition:.3s;
+}
+.dark article{background:#1e293b}
+article:hover{transform:translateY(-8px)}
+
+h2{margin-bottom:10px}
+
+/* BUTTONS */
+.btn{
+  padding:10px 15px;
+  border:none;
+  border-radius:30px;
+  margin:5px;
+  cursor:pointer;
+  color:white;
+  font-weight:600;
+  transition:.3s;
+}
+.btn:hover{transform:scale(1.1)}
+
+.btn-blue{background:#3b82f6}
+.btn-green{background:#22c55e}
+.btn-pink{background:#ec4899}
+.btn-orange{background:#f97316}
+.btn-purple{background:#8b5cf6}
+
+.card{
+  padding:15px;
+  border-radius:15px;
+  background:#f1f5f9;
+  margin:10px 0;
+}
+.dark .card{background:#334155}
+
+footer{
+  text-align:center;
+  padding:20px;
+  background:#111827;
+  color:white;
+}
+
+form{display:flex;flex-direction:column}
+input,textarea{margin:10px 0;padding:10px;border-radius:10px;border:1px solid #ccc}
+.error{color:red;font-size:12px}
+.success{color:limegreen}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🚀 Sridipta Dutta</h1>
+  <p>Full Stack Developer | ML Engineer | AI Enthusiast</p>
+  <button class="btn btn-purple" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+
+<article id="about">
+<h2>🔥 About Me</h2>
+<p>
+I am a 3rd year CSE student from JIS College of Engineering. 
+I am a Full Stack Web Developer, Machine Learning Engineer and AI Enthusiast.
+I have built many MERN stack and Machine Learning projects.
+Currently working on AI and chatbot systems.
+I have solved 300+ DSA problems and I am also a content writer.
+</p>
+
+<button class="btn btn-blue" onclick="hello()">👋 Say Hi</button>
+<button class="btn btn-green" onclick="motivate()">💡 Motivate Me</button>
+<button class="btn btn-pink" onclick="skillsMsg()">⚡ My Power</button>
+
+<p id="msg"></p>
+</article>
+
+<article id="skills">
+<h2>💻 Skills</h2>
+<div class="card">MERN Stack Development</div>
+<div class="card">Machine Learning</div>
+<div class="card">AI & Chatbot Development</div>
+<div class="card">Data Structures & Algorithms</div>
+<div class="card">Content Writing</div>
+</article>
+
+<article id="projects">
+<h2>🚀 Projects</h2>
+<div class="card">AI Chatbot System</div>
+<div class="card">Medical RAG Application</div>
+<div class="card">Portfolio Website</div>
+<div class="card">ML Disease Prediction</div>
+<button class="btn btn-orange" onclick="alert('More projects coming soon!')">✨ Explore More</button>
+</article>
+
+<article id="contact">
+<h2>📩 Contact Me</h2>
+<form onsubmit="return validateForm()">
+<input id="name" placeholder="Name">
+<span id="nameError" class="error"></span>
+
+<input id="email" placeholder="Email">
+<span id="emailError" class="error"></span>
+
+<textarea id="message" placeholder="Message"></textarea>
+<span id="msgError" class="error"></span>
+
+<button class="btn btn-green">Send Message</button>
+<p id="successMsg" class="success"></p>
+</form>
+</article>
+
+</div>
+
+<footer>
+<p>© 2026 Sridipta | Built with ❤️ using HTML CSS JS</p>
+</footer>
+
+<script>
+function toggleDarkMode(){document.body.classList.toggle('dark')}
+
+function hello(){msg.innerText="Hey! Thanks for visiting my portfolio 🚀"}
+function motivate(){msg.innerText="Keep pushing! You're building something amazing 💪"}
+function skillsMsg(){msg.innerText="Full Stack + AI + DSA = POWER ⚡"}
+
+function validateForm(){
+let valid=true
+if(name.value==""){nameError.innerText="Required";valid=false}else nameError.innerText=""
+if(email.value==""||!email.value.includes('@')){emailError.innerText="Invalid";valid=false}else emailError.innerText=""
+if(message.value==""){msgError.innerText="Required";valid=false}else msgError.innerText=""
+if(valid){successMsg.innerText="Message Sent Successfully! 🚀"}
+return false
+}
+
+header.addEventListener("mouseover",()=>{
+header.style.background="linear-gradient(135deg,#f97316,#ec4899,#6366f1)"
+})
+
+footer.addEventListener("click",()=>alert("🔥 Thanks for visiting my portfolio!"))
+</script>
+
+</body>
+</html>
